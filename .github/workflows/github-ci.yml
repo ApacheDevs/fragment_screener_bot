@@ -3,7 +3,7 @@ name: DockerHub image push
 on:
   push:
     branches:
-      [ "master" ]
+      [ "main" ]
 
 jobs:
   docker_hub_image_push:
