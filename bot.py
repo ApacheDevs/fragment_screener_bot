@@ -13,14 +13,14 @@ logger = logging.getLogger(__name__)
 def main():
     token = os.getenv('TELEGRAM_TOKEN')
     chat_id = os.getenv('CHAT_ID')
+    link = os.getenv('LINK')
 
     if not token:
         logger.error("TELEGRAM_TOKEN environment variable not set")
         exit(1)
 
     try:
-        usernames_df = pd.read_csv(
-            "https://docs.google.com/spreadsheets/d/114F5zzunFfeBgjSMq_yXVaKIIfuznX2eqzuNCxzJ0OE/export?gid=1209421708&format=csv")
+        usernames_df = pd.read_csv(link)
     except Exception as e:
         logger.error(f"Failed to read CSV: {e}")
         exit(1)
